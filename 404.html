@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phil</title>
+<meta name="robots" content="noindex">
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#f7f5f0; color:#1f2937; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; }
+  .box { text-align:center; max-width: 420px; padding: 24px; }
+  h1 { font-size: 1.25rem; margin-bottom: 8px; }
+  p { color:#4b5563; margin-bottom: 20px; }
+  a { color:#1f6f54; font-weight:600; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="box" id="box">
+  <h1>Just a moment...</h1>
+  <p>Loading the page.</p>
+</div>
+<script>
+  // Some requests to this domain occasionally hit a transient routing
+  // blip that resolves itself on a second try. Rather than show visitors
+  // a raw 404, silently retry the exact same URL once. If the retry also
+  // fails (i.e. we land back here again), show a real not-found message
+  // instead of retrying forever.
+  (function () {
+    var key = "phil404retry:" + location.pathname + location.search;
+    var alreadyRetried = false;
+    try { alreadyRetried = sessionStorage.getItem(key) === "1"; } catch (e) {}
+
+    if (!alreadyRetried) {
+      try { sessionStorage.setItem(key, "1"); } catch (e) {}
+      setTimeout(function () {
+        location.replace(location.pathname + location.search + location.hash);
+      }, 500);
+    } else {
+      try { sessionStorage.removeItem(key); } catch (e) {}
+      document.getElementById("box").innerHTML =
+        '<h1>Page not found</h1>' +
+        '<p>We could not find that page.</p>' +
+        '<a href="/">Back to Phil</a>';
+    }
+  })();
+</script>
+</body>
+</html>
