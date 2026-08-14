@@ -1,0 +1,22 @@
+# Proxy app functionality through the marketing domain so visitors never see app.phileducation.co.uk.
+# "/" itself is intentionally NOT proxied, so the marketing page keeps serving there.
+
+/static/*  https://app.phileducation.co.uk/static/:splat  200
+/signup  https://app.phileducation.co.uk/signup  200
+/login  https://app.phileducation.co.uk/login  200
+/logout  https://app.phileducation.co.uk/logout  200
+/courses  https://app.phileducation.co.uk/courses  200
+/courses/*  https://app.phileducation.co.uk/courses/:splat  200
+/mentor  https://app.phileducation.co.uk/mentor  200
+/mentor/*  https://app.phileducation.co.uk/mentor/:splat  200
+/admin  https://app.phileducation.co.uk/admin  200
+/admin/*  https://app.phileducation.co.uk/admin/:splat  200
+/parent  https://app.phileducation.co.uk/parent  200
+/report/*  https://app.phileducation.co.uk/report/:splat  200
+/staff  https://app.phileducation.co.uk/staff  200
+/staff/*  https://app.phileducation.co.uk/staff/:splat  200
+/support/*  https://app.phileducation.co.uk/support/:splat  200
+/billing/*  https://app.phileducation.co.uk/billing/:splat  200
+/webhooks/*  https://app.phileducation.co.uk/webhooks/:splat  200
+/certificate/*  https://app.phileducation.co.uk/certificate/:splat  200
+/session/*  https://app.phileducation.co.uk/session/:splat  200
