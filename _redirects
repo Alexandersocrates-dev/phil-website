@@ -25,3 +25,11 @@
 /webhooks/*  https://app.phileducation.co.uk/webhooks/:splat  200!
 /certificate/*  https://app.phileducation.co.uk/certificate/:splat  200!
 /session/*  https://app.phileducation.co.uk/session/:splat  200!
+
+# Catch-all, deliberately LAST and deliberately WITHOUT the force flag.
+# Netlify takes the first matching rule, and an unforced rule yields to a
+# real file on this site, so "/" and the marketing assets still serve from
+# here. Everything else falls through to the app automatically, so a new
+# page in Phil works on this domain the moment it ships, with no rule to add.
+/*  https://app.phileducation.co.uk/:splat  200
+
