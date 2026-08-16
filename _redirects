@@ -7,6 +7,9 @@
 /signup  https://app.phileducation.co.uk/signup  200!
 /login  https://app.phileducation.co.uk/login  200!
 /logout  https://app.phileducation.co.uk/logout  200!
+/account/*  https://app.phileducation.co.uk/account/:splat  200!
+/forgot-password  https://app.phileducation.co.uk/forgot-password  200!
+/reset-password/*  https://app.phileducation.co.uk/reset-password/:splat  200!
 /courses  https://app.phileducation.co.uk/courses  200!
 /courses/*  https://app.phileducation.co.uk/courses/:splat  200!
 /mentor  https://app.phileducation.co.uk/mentor  200!
